@@ -96,3 +96,93 @@ let yearAt100 = currentYear + (100 - myAge);
 console.log("Age in days:", ageInDays);
 console.log("Age in hours:", ageInHours);
 console.log("Year you turn 100:", yearAt100);
+
+
+
+// =======================
+// EXERCISE 1: FUNCTION DECLARATIONS
+// =======================
+
+// Function declaration
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+// Function expression
+const add = function(a, b) {
+    return a + b;
+};
+
+// Arrow function
+const multiply = (a, b) => a * b;
+
+// Arrow function with body
+const divide = (a, b) => {
+    if (b === 0) {
+        return "Cannot divide by zero";
+    }
+    return a / b;
+};
+
+// Test the functions
+console.log("\n=== Exercise 1: Functions ===");
+console.log(greet("Cheryl"));
+console.log("Add 5 + 3:", add(5, 3));
+console.log("Multiply 4 * 6:", multiply(4, 6));
+console.log("Divide 10 / 2:", divide(10, 2));
+console.log("Divide 10 / 0:", divide(10, 0));
+
+
+// =======================
+// EXERCISE 2: BUILD THESE FUNCTIONS
+// =======================
+
+// 1️⃣ Area of rectangle
+const calculateArea = (width, height) => width * height;
+
+// 2️⃣ Celsius to Fahrenheit
+const celsiusToFahrenheit = (celsius) => (celsius * 9/5) + 32;
+
+// 3️⃣ Check if even
+const isEven = (number) => number % 2 === 0;
+
+// 4️⃣ Get initials
+const getInitials = (fullName) => {
+    return fullName
+        .split(" ")
+        .map(word => word[0].toUpperCase())
+        .join("");
+};
+
+// 5️⃣ Reverse string
+const reverseString = (str) => str.split("").reverse().join("");
+
+console.log("\n=== Exercise 2: Build Functions ===");
+console.log("Area of 5x10:", calculateArea(5, 10));
+console.log("25°C to Fahrenheit:", celsiusToFahrenheit(25));
+console.log("Is 8 even?", isEven(8));
+console.log("Initials of 'Cheryl Adhiambo':", getInitials("Cheryl Adhiambo"));
+console.log("Reverse 'Hello':", reverseString("Hello"));
+
+
+// =======================
+// EXERCISE 3: DEFAULT PARAMETERS
+// =======================
+
+// Greet function with defaults
+function greetDefault(name = "Guest", greeting = "Hello") {
+    return `${greeting}, ${name}!`;
+}
+
+console.log("\n=== Exercise 3: Default Parameters ===");
+console.log(greetDefault());             // Hello, Guest!
+console.log(greetDefault("Alice"));      // Hello, Alice!
+console.log(greetDefault("Bob", "Hi"));  // Hi, Bob!
+
+// Calculate Tip
+function calculateTip(bill, tipPercent = 15) {
+    return (bill * tipPercent) / 100;
+}
+
+console.log("Tip on $200 at default 15%:", calculateTip(200));
+console.log("Tip on $200 at 20%:", calculateTip(200, 20));
