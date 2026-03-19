@@ -1,75 +1,77 @@
 // =======================
-// EXERCISE 1: ARRAY BASICS
+// EXERCISE 1: OBJECT BASICS
 // =======================
-console.log("=== Array Basics ===");
+console.log("=== Object Basics ===");
 
-// Creating arrays
-const fruits = ["apple", "banana", "orange"];
-const numbersBasic = [1, 2, 3, 4, 5];
-const mixed = ["hello", 42, true, null];
+// Creating object
+const person = {
+    firstName: "Cheryl",
+    lastName: "Adhiambo",
+    age: 20,
+    isStudent: true,
+    hobbies: ["reading", "coding", "music"],
+    address: {
+        city: "Nairobi",
+        country: "Kenya"
+    }
+};
 
-// Accessing elements
-console.log("First fruit:", fruits[0]);
-console.log("Number of fruits:", fruits.length);
+// Accessing properties
+console.log(person.firstName);        // Dot notation
+console.log(person["lastName"]);      // Bracket notation
+console.log(person.address.city);     // Nested
 
-// Modifying arrays
-fruits.push("grape");       // Add to end
-fruits.unshift("mango");    // Add to start
-fruits.pop();               // Remove from end
-fruits.shift();             // Remove from start
+// Modifying properties
+person.age = 21;
+person.email = "cheryl@example.com"; // Add new property
+delete person.isStudent;             // Remove property
 
-console.log("Updated fruits:", fruits);
-
-
-// =======================
-// EXERCISE 2: ARRAY METHODS
-// =======================
-console.log("\n=== Array Methods ===");
-
-const numbers = [1, 2, 3, 4, 5];
-
-// forEach
-numbers.forEach(num => console.log("Double:", num * 2));
-
-// map
-const doubled = numbers.map(num => num * 2);
-console.log("Doubled array:", doubled);
-
-// filter
-const evenNumbers = numbers.filter(num => num % 2 === 0);
-console.log("Even numbers:", evenNumbers);
-
-// find
-const firstEven = numbers.find(num => num % 2 === 0);
-console.log("First even number:", firstEven);
-
-// reduce
-const sum = numbers.reduce((total, num) => total + num, 0);
-console.log("Sum:", sum);
-
-// includes
-console.log("Includes 3:", numbers.includes(3));
+console.log("Updated person:", person);
 
 
 // =======================
-// BUILD TASKS
+// EXERCISE 2: OBJECT METHODS
 // =======================
-console.log("\n=== Build Tasks ===");
+console.log("\n=== Object Methods ===");
 
-const testNumbers = [2, -5, 8, 12, -3, 7];
+const calculator = {
+    add: function(a, b) {
+        return a + b;
+    },
 
-// 1️⃣ Double all numbers
-const doubledAll = testNumbers.map(num => num * 2);
-console.log("Doubled:", doubledAll);
+    subtract(a, b) {
+        return a - b;
+    },
 
-// 2️⃣ Filter out negative numbers
-const noNegatives = testNumbers.filter(num => num >= 0);
-console.log("No negatives:", noNegatives);
+    multiply: (a, b) => a * b
+};
 
-// 3️⃣ Find first number greater than 10
-const greaterThanTen = testNumbers.find(num => num > 10);
-console.log("First > 10:", greaterThanTen);
+console.log("Add:", calculator.add(5, 3));
+console.log("Subtract:", calculator.subtract(10, 4));
+console.log("Multiply:", calculator.multiply(6, 2));
 
-// 4️⃣ Product of all numbers
-const product = testNumbers.reduce((total, num) => total * num, 1);
-console.log("Product:", product);
+
+// =======================
+// EXERCISE 3: OBJECT ITERATION
+// =======================
+console.log("\n=== Object Iteration ===");
+
+const scores = {
+    math: 95,
+    english: 88,
+    science: 92
+};
+
+// Keys
+console.log("Keys:", Object.keys(scores));
+
+// Values
+console.log("Values:", Object.values(scores));
+
+// Entries
+console.log("Entries:", Object.entries(scores));
+
+// Loop through
+for (const [subject, score] of Object.entries(scores)) {
+    console.log(`${subject}: ${score}`);
+}
